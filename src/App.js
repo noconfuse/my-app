@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {Route, BrowserRouter } from 'react-router-dom';
+import Layout from './components/Layout';
+import Task from './components/Task';
+import Notes from './components/Notes';
+import Category from './components/Category';
+import Address from './components/Address';
+import Tags from './components/Tags';
+import Landing from './components/Landing';
+import User from './components/User';
 
-class App extends Component {
+import './App.css';
+class RouteMap extends React.Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <BrowserRouter>
+        <div className="app">
+          <Route exact path='/' component={Landing}/>
+          <Route path='/user' component={User} />  
+          <Route path="home" component={Layout}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default RouteMap;
